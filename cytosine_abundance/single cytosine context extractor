@@ -1,0 +1,6 @@
+## This script will allow you to extract the specific cytosine contexts (i.e. number per w50) from the cytosine_abundance gff output.
+## It is a brief extension of the details on the main page cytosine_abundance page.
+
+cat file_cytosine.gff | awk '{split($9,a,";"); split(a[1],b,"="); print $1"\t"$2"\t"$3"\t"$4"\t"$5"\t"b[2]"\t"$7"\t"$8"\t"b[1]}' > file_cytosine.CAA.gff
+
+Replace split(a[1],b,"=") accordingly for each context, e.g. split(a[2],b,"=") for CAC context.
